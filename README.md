@@ -2,4 +2,4 @@
 
 NANACHI
 
-Fukano
+Fukano　Pushできるかのテスト
