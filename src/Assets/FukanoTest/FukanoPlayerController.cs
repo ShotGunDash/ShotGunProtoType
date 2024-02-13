@@ -11,12 +11,8 @@ public class FukanoPlayerController : MonoBehaviour
 
     private void Start()
     {
-        BulletClass NormalBullet = new BulletClass();
-        BulletClass FireBullet = new BulletClass();
-        NormalBullet.Initialsetting(datas,shotEvent,0,0);
-        FireBullet.Initialsetting(datas, shotEvent, 1, 0);
-        PlayerBullet.Add(NormalBullet);
-        PlayerBullet.Add(FireBullet);
+        SetBullet(0);
+        SetBullet(1);
     }
     public void Update()
     {
@@ -38,5 +34,11 @@ public class FukanoPlayerController : MonoBehaviour
             Debug.Log("ç°ÇÃíeÇÃÉåÉxÉãÇè„Ç∞ÇÈÇ∫");
             PlayerBullet[shotNum].LevelUp();
         }
+    }
+    public void SetBullet(int ID)
+    {
+        BulletClass Bullet = new BulletClass();
+        Bullet.Initialsetting(datas, shotEvent, ID, 0);
+        PlayerBullet.Add(Bullet);
     }
 }
