@@ -4,41 +4,69 @@ using UnityEngine;
 
 public class FukanoPlayerController : MonoBehaviour
 {
-    [SerializeField]private List<BulletClass> PlayerBullet = new List<BulletClass>();
+    [SerializeField] private List<BulletClass> LeftBullet = new List<BulletClass>();
+    [SerializeField] private List<BulletClass> RightBullet = new List<BulletClass>();
     [SerializeField] private BulletDatas datas;
     [SerializeField] private ShotEvent shotEvent;
-    private int shotNum = 0; 
+    private int LeftShotNum = 0;
+    private int RightShotNum = 0;
 
     private void Start()
     {
-        SetBullet(0);
-        SetBullet(1);
+        SetBullet(0,"L");
+        shotEvent.ChangeBullet(LeftBullet[LeftShotNum].GetAngle(), LeftBullet[LeftShotNum].GetRange(), "L");
+        SetBullet(1, "L");
+        SetBullet(0, "R");
+        shotEvent.ChangeBullet(RightBullet[LeftShotNum].GetAngle(), RightBullet[LeftShotNum].GetRange(), "R");
+        SetBullet(1, "R");
     }
-    public void Update()
+   
+    public void Leftshot()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            PlayerBullet[shotNum].Shot();
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("íeÇïœÇ¶ÇÈÇ∫");
-            shotNum++;
-            if(shotNum == PlayerBullet.Count) 
-            { 
-                shotNum = 0;
-            }
-        }
-        if(Input.GetMouseButtonDown(2))
-        {
-            Debug.Log("ç°ÇÃíeÇÃÉåÉxÉãÇè„Ç∞ÇÈÇ∫");
-            PlayerBullet[shotNum].LevelUp();
-        }
+        LeftBullet[LeftShotNum].Shot("L");
     }
-    public void SetBullet(int ID)
+    public void RightShot()
     {
-        BulletClass Bullet = new BulletClass();
-        Bullet.Initialsetting(datas, shotEvent, ID, 0);
-        PlayerBullet.Add(Bullet);
+        RightBullet[LeftShotNum].Shot("R");
+    }
+
+    public void LeftChangeBullet()
+    {
+        Debug.Log("íeÇïœÇ¶ÇÈÇ∫");
+        LeftShotNum++;
+        if (LeftShotNum == LeftBullet.Count)
+        {
+            LeftShotNum = 0;
+        }
+        shotEvent.ChangeBullet(LeftBullet[LeftShotNum].GetAngle(), LeftBullet[LeftShotNum].GetRange(),"L");
+    }
+    public void RightChangeBullet()
+    {
+        Debug.Log("íeÇïœÇ¶ÇÈÇ∫");
+        RightShotNum++;
+        if (RightShotNum == RightBullet.Count)
+        {
+            RightShotNum = 0;
+        }
+        shotEvent.ChangeBullet(RightBullet[LeftShotNum].GetAngle(), RightBullet[LeftShotNum].GetRange(), "R");
+    }
+
+    public void SetBullet(int ID,string LR)
+    {
+        if (LR == "L")
+        {
+            BulletClass Bullet = new BulletClass();
+            Bullet.Initialsetting(datas, shotEvent, ID, 0);
+            LeftBullet.Add(Bullet);
+        }
+        else if (LR == "R")
+        {
+            BulletClass Bullet = new BulletClass();
+            Bullet.Initialsetting(datas, shotEvent, ID, 0);
+            RightBullet.Add(Bullet);
+        }
+        else
+            Debug.Log("ï∂éöÇ™ä‘à·Ç¶ÇƒÇ¢Ç‹Ç∑");
+       
     }
 }

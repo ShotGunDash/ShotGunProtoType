@@ -21,10 +21,14 @@ public class BulletData
     public int ID;
     public float power;
     public float recoil;
+    public float angle;
+    public float range;
     public float Levelpower; 
     public float Levelrecoil;
-   
-  
-   
+    public float Levelangle;
+    public float Levelrange;
+
+
+
 
 }

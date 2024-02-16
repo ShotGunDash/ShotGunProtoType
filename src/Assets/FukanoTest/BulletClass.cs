@@ -13,6 +13,8 @@ public class BulletClass
     private BulletData mBullet;
     private float mPower;
     private float mRecoil;
+    private float mAngle;
+    private float mRange;
 
     public void Initialsetting(BulletDatas datas,ShotEvent events,int setID,int setLevel)
     { 
@@ -25,6 +27,8 @@ public class BulletClass
            mBullet = bulletDatabase.bulletDatas[ID];
            mPower = mBullet.power+(bulletDatabase.bulletDatas[ID].Levelpower*level);
            mRecoil = mBullet.recoil + (bulletDatabase.bulletDatas[ID].Levelrecoil * level);
+           mAngle = mBullet.angle + (bulletDatabase.bulletDatas[ID].Levelangle * level);
+           mRange = mBullet.range + (bulletDatabase.bulletDatas[ID].Levelrange * level);
         }
        
     }
@@ -33,13 +37,25 @@ public class BulletClass
         level++;
         mPower = mBullet.power + (bulletDatabase.bulletDatas[ID].Levelpower * level);
         mRecoil = mBullet.recoil + (bulletDatabase.bulletDatas[ID].Levelrecoil * level);
+        mAngle = mBullet.angle + (bulletDatabase.bulletDatas[ID].Levelangle * level);
+        mRange = mBullet.range + (bulletDatabase.bulletDatas[ID].Levelrange * level);
     }
-    public void Shot()
+
+    public float  GetAngle()
+    {
+        return mAngle;
+    }
+
+    public float GetRange()
+    {
+        return mRange;
+    }
+    public void Shot(string LR)
     {
        switch (mBullet.type) 
         {
-            case BulletData.BulletType.Normal: { shotEvent.NormalShot(mPower,mRecoil); break; }
-            case BulletData.BulletType.Fire: { shotEvent.FireShot(mPower, mRecoil); break; }
+            case BulletData.BulletType.Normal: { shotEvent.NormalShot(mPower,mRecoil,mAngle,mRange,LR); break; }
+            case BulletData.BulletType.Fire: { shotEvent.FireShot(mPower, mRecoil, mAngle, mRange,LR); break; }
             default: { Debug.Log("ƒWƒƒƒ€‚Á‚½‚º"); break; }
         }
     }
