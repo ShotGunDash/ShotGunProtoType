@@ -14,16 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BulletDatas
   bulletDatas:
   - type: 0
-    name: NormalBullet
+    name: "\u901A\u5E38\u5F3E"
     ID: 0
     power: 1
     recoil: 2
+    angle: 10
+    range: 5
     Levelpower: 10
     Levelrecoil: 5
-  - type: 1
-    name: FireBullet
+    Levelangle: 0
+    Levelrange: 1
+  - type: 0
+    name: "\u62E1\u6563\u5F3E"
     ID: 1
     power: 10
     recoil: 2
+    angle: 30
+    range: 3
     Levelpower: 1
     Levelrecoil: 10
+    Levelangle: 1
+    Levelrange: 0
