@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Unity.VisualScripting.Member;
 using UnityEngine.InputSystem;
+using Unity.VisualScripting;
 public class PlayerController : MonoBehaviour
 {
     [Header("ÉqÉGÉâÉãÉLÅ[Ç©ÇÁÇÃì±ì¸")]
@@ -15,6 +16,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float BulletPower = 2000;
     [SerializeField] private float AirResistance = 4f;
     [SerializeField] private float JumpPower = 0.3f;
+    [SerializeField] private float OnGroundDistanse = 1.0f;
+    [SerializeField] private float OnGroundSphereScale = 0.3f;
+    [SerializeField] private float BrakePower = 0.9f;
 
     private Rigidbody rb;
     private float time = 0;
@@ -60,81 +64,50 @@ public class PlayerController : MonoBehaviour
         RightSteyTrigger = isTrigger;
     }
 
+    private bool OnGround()
+    {
+        RaycastHit hit; 
+        LayerMask mask = 3 << LayerMask.NameToLayer("Stage");
+        bool Trigger = Physics.SphereCast(transform.position, OnGroundSphereScale, Vector3.down, out hit, OnGroundDistanse, mask);
+        if (Trigger)Debug.Log(hit.collider.gameObject.name);
+        return Trigger;
+    }
 
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawRay(transform.position, Vector3.down * OnGroundDistanse);
+        Gizmos.DrawWireSphere(transform.position + Vector3.down * OnGroundDistanse, OnGroundSphereScale);
 
-
-
-
-
-
+    }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            V2 = 1;
-        }
-
-        else if (Input.GetKey(KeyCode.DownArrow))
-        {
-            V2 = -1;
-        }
-
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            H2 = -1;
-        }
-
-        else if (Input.GetKey(KeyCode.RightArrow))
-        {
-            H2 = 1;
-        }
-          if (H2 != 0 || V2 != 0)
-        {
-            Vector3 direction = new Vector3(H2, 0, V2);
-            transform.localRotation = Quaternion.LookRotation(direction);
-        }
-        */
-       
-        if (LeftMuzzle != Vector3.zero) 
-        {
-            if (!LeftArrow.activeSelf)
-                LeftArrow.SetActive(true);
-            LeftArrow.transform.rotation = Quaternion.LookRotation(LeftMuzzle) * Quaternion.Euler(90, 0, 0);
-        }
-        else
-        {
-            LeftArrow.SetActive(false);
-        }
-
-        if (RightMuzzle != Vector3.zero)
-        {
-            if (!RightArrow.activeSelf)
-                RightArrow.SetActive(true);
-            RightArrow.transform.rotation = Quaternion.LookRotation(RightMuzzle) * Quaternion.Euler(90, 0, 0);
-        }
-        else
-        {
-            RightArrow.SetActive(false);
-        }
+        BulletLineControl(LeftArrow, LeftMuzzle);
+        BulletLineControl(RightArrow, RightMuzzle);
         
-        bool CheckTrigger = RightSteyTrigger && LeftSteyTrigger;
-        
+        bool CheckTriggerBoth = RightSteyTrigger && LeftSteyTrigger;
+        bool CheckTriggerOneside = RightSteyTrigger || LeftSteyTrigger;
         time += Time.deltaTime;
         bool CheckIntarval = time > Intarval;
-
         if (CheckIntarval)
         {
             if (LeftShot)
             {
-                IsShot(LeftMuzzle, CheckTrigger);
+                IsShot(LeftMuzzle, CheckTriggerBoth);
             }
             if (RightShot)
             {
-                IsShot(RightMuzzle, CheckTrigger);
+                IsShot(RightMuzzle, CheckTriggerBoth);
             }
+        }
+
+        if (OnGround() && CheckTriggerOneside)
+        {
+            Vector3 rbForse = rb.velocity;
+            rbForse.x *= BrakePower; 
+            rbForse.z *= BrakePower;
+            rb.velocity = rbForse;
         }
        /* if (Input.GetMouseButtonDown(0) && time > Intarval)
         {
@@ -144,6 +117,22 @@ public class PlayerController : MonoBehaviour
             //source.Play();
         }*/
     }
+
+    void BulletLineControl(GameObject Arrow, Vector3 Muzzle)
+    {
+        if (Muzzle != Vector3.zero)
+        {
+            if (!Arrow.activeSelf)
+                Arrow.SetActive(true);
+
+            Arrow.transform.rotation = Quaternion.LookRotation(Muzzle) * Quaternion.Euler(90, 0, 0);
+        }
+        else
+        {
+            Arrow.SetActive(false);
+        }
+    }
+
 
     void IsShot(Vector3 Muzzle, bool CheckTrigger)
     {
