@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 7785525087072161732}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.05, y: 2.04, z: -5.27}
+  m_LocalPosition: {x: 0.1, y: 1.55, z: -2.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -54,22 +54,22 @@ VisualEffect:
       - m_Value: 0.01
         m_Name: FresnelPower
         m_Overridden: 1
-      - m_Value: 0.23
+      - m_Value: 3
         m_Name: SmokeSize
         m_Overridden: 1
-      - m_Value: 60.54
+      - m_Value: 47.22
         m_Name: Rate
         m_Overridden: 1
       - m_Value: 0.93
         m_Name: DecalAlphaScale
         m_Overridden: 1
-      - m_Value: 1.2
+      - m_Value: 0.45
         m_Name: SmokeLifeTime
         m_Overridden: 1
       - m_Value: 1.36
         m_Name: ShotAxisZ
         m_Overridden: 1
-      - m_Value: 3.21
+      - m_Value: 1.07
         m_Name: SmokeAxisZ
         m_Overridden: 1
       - m_Value: 42.43
@@ -77,6 +77,9 @@ VisualEffect:
         m_Overridden: 1
       - m_Value: 0.4
         m_Name: GunAxisZ
+        m_Overridden: 1
+      - m_Value: 0.24
+        m_Name: ShotLifeTime
         m_Overridden: 1
     m_Vector2f:
       m_Array: []
@@ -88,16 +91,16 @@ VisualEffect:
       - m_Value: {x: 0, y: 0, z: 0}
         m_Name: SplashSpeed
         m_Overridden: 1
-      - m_Value: {x: 0, y: -7.53, z: 48.33}
+      - m_Value: {x: 0, y: -1.02, z: 45.96}
         m_Name: GravityRotate
         m_Overridden: 1
-      - m_Value: {x: 2.91, y: 2, z: 24.53}
+      - m_Value: {x: 2.97, y: 2, z: 44.4}
         m_Name: SmokeVelocity
         m_Overridden: 1
-      - m_Value: {x: 1.95, y: 0.5, z: 6.41}
+      - m_Value: {x: 4.33, y: 6.31, z: 15.77}
         m_Name: ShotVelocity
         m_Overridden: 1
-      - m_Value: {x: 0, y: 0, z: 0}
+      - m_Value: {x: 41.96, y: 0, z: 0}
         m_Name: ShotSpeed
         m_Overridden: 1
     m_Vector4f:
@@ -114,11 +117,14 @@ VisualEffect:
       - m_Value: {x: 0.92116594, y: 0, z: 0, w: 0}
         m_Name: DecalSpecularColor
         m_Overridden: 1
-      - m_Value: {x: 63.25359, y: 0, z: 0, w: 0}
+      - m_Value: {x: 37.0377, y: 6.185447, z: 0, w: 0}
         m_Name: ShotMainColor
         m_Overridden: 1
       - m_Value: {x: 14.754423, y: 3.5974815, z: 0, w: 0}
         m_Name: ShotSpecularColor
+        m_Overridden: 1
+      - m_Value: {x: 126.49414, y: 34.24651, z: 2.6490896, w: 0}
+        m_Name: MuzzleFlashColor
         m_Overridden: 1
     m_Uint:
       m_Array: []
@@ -132,8 +138,8 @@ VisualEffect:
           serializedVersion: 2
           m_Curve:
           - serializedVersion: 3
-            time: -0.006023407
-            value: 0.007080078
+            time: 0
+            value: 0.10673523
             inSlope: 0.66607285
             outSlope: 0.66607285
             tangentMode: 0
@@ -159,19 +165,19 @@ VisualEffect:
       - m_Value:
           serializedVersion: 2
           key0: {r: 0.6698113, g: 0.6698113, b: 0.6698113, a: 1}
-          key1: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 1}
-          key2: {r: 0.3207547, g: 0.31974605, b: 0.31974605, a: 0.8}
+          key1: {r: 0.3207547, g: 0.31974605, b: 0.31974605, a: 1}
+          key2: {r: 0.06918234, g: 0.06918234, b: 0.06918234, a: 0.8}
           key3: {r: 0.1509434, g: 0.1509434, b: 0.1509434, a: 0}
-          key4: {r: 5.9313946, g: 0, b: 0.115202695, a: 0}
-          key5: {r: 0.3702457, g: 1.4954671, b: 3.0983741, a: 0}
+          key4: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 0}
+          key5: {r: 5.631202, g: 0, b: 1.0035005, a: 0}
           key6: {r: 0.19165407, g: 1.4335928, b: 1.6038432, a: 0}
           key7: {r: 0, g: 7.9582925, b: 7.743203, a: 0}
           ctime0: 20239
-          ctime1: 22937
-          ctime2: 48380
+          ctime1: 38936
+          ctime2: 64571
           ctime3: 64571
           ctime4: 65535
-          ctime5: 46260
+          ctime5: 64571
           ctime6: 53970
           ctime7: 65535
           atime0: 0
@@ -182,9 +188,9 @@ VisualEffect:
           atime5: 0
           atime6: 0
           atime7: 0
-          m_Mode: 1
+          m_Mode: 2
           m_ColorSpace: 1
-          m_NumColorKeys: 4
+          m_NumColorKeys: 3
           m_NumAlphaKeys: 2
         m_Name: MainColorGradient
         m_Overridden: 1
