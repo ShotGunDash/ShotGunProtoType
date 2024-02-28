@@ -14,14 +14,14 @@ public class ShotEvent : MonoBehaviour
     {
        if(LR == "L")
         {
-            Debug.Log("ç∂îÑÇ¡ÇΩÇÊ");
+            //Debug.Log("ç∂îÑÇ¡ÇΩÇÊ");
             LeftShot.SetActive(true);
             StartCoroutine("LeftFinishShot");
           
         }
        else if(LR == "R") 
         {
-            Debug.Log("âEîÑÇ¡ÇΩÇÊ");
+           // Debug.Log("âEîÑÇ¡ÇΩÇÊ");
             RightShot.SetActive(true);
             StartCoroutine("RightFinishShot");
         }
@@ -47,13 +47,13 @@ public class ShotEvent : MonoBehaviour
 
     IEnumerator LeftFinishShot()
     {
-        yield return null;
+        yield return new WaitForSeconds(0.04f);
         LeftShot.SetActive(false);
     }
 
     IEnumerator RightFinishShot()
     {
-        yield return null;
+        yield return new WaitForSeconds(0.04f);
         RightShot.SetActive(false);
     }
 }

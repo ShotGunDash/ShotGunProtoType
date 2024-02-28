@@ -4,11 +4,33 @@ using UnityEngine;
 
 public class HitController : MonoBehaviour
 {
+    [SerializeField] private GameObject Player;
+    private FukanoPlayerController PlayerController;
+    private enum Gun
+    {
+        L,
+        R
+    };
+    [SerializeField] private Gun gun;
+
+    private void Awake()
+    {
+        PlayerController = Player.GetComponent<FukanoPlayerController>();
+    }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "enemy")
+        var HitTarget = other.GetComponent<EnemyInterface>();
+        if (HitTarget == null)
+            return;
+
+        if (gun == Gun.L)
         {
-            Debug.Log("ìGÇ…çUåÇÇµÇΩÇÊ");
+            HitTarget.AddDamage(Player,PlayerController.LeftBullet[PlayerController.LeftShotNum].GetPower());
         }
+        else if (gun == Gun.R)
+        {
+            HitTarget.AddDamage(Player,PlayerController.RightBullet[PlayerController.RightShotNum].GetPower());
+        }
+
     }
 }

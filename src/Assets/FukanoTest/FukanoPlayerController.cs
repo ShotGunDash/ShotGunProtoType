@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class FukanoPlayerController : MonoBehaviour
 {
-    [SerializeField] private List<BulletClass> LeftBullet = new List<BulletClass>();
-    [SerializeField] private List<BulletClass> RightBullet = new List<BulletClass>();
+    [SerializeField] public List<BulletClass> LeftBullet = new List<BulletClass>();
+    [SerializeField] public List<BulletClass> RightBullet = new List<BulletClass>();
     [SerializeField] private BulletDatas datas;
     [SerializeField] private ShotEvent shotEvent;
-    private int LeftShotNum = 0;
-    private int RightShotNum = 0;
+    public int LeftShotNum = 1;
+    public int RightShotNum = 0;
 
     private void Start()
     {

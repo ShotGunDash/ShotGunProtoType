@@ -50,6 +50,11 @@ public class BulletClass
     {
         return mRange;
     }
+
+    public float GetPower()
+    {
+        return mPower;
+    }
     public void Shot(string LR)
     {
        switch (mBullet.type) 
