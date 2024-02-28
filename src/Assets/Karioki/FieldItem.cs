@@ -29,21 +29,12 @@ public class FieldItem : MonoBehaviour
         }
         else if (IsDistance < MoveDistance) 
         {
-            co.isTrigger = true;
             float disSpeed = (MoveDistance - IsDistance) * MoveBrake;
-            rb.AddForce((Player.transform.position - this.transform.position+ Vector3.up).normalized * disSpeed);
+            rb.AddForce((Player.transform.position - this.transform.position + Vector3.up).normalized * disSpeed);
         }
         else
         {
-            co.isTrigger = false;
             rb.AddForce(Vector3.down);
-        }
-    }
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Player")
-        {
-            Destroy(this.gameObject);
         }
     }
     void IsGet()
