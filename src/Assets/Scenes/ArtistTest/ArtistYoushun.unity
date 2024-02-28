@@ -989,7 +989,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cf90ef09f4a1c044bd4059315a199ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LeftArrow: {fileID: 0}
+  RightArrow: {fileID: 0}
+  Intarval: 0.4
   BulletPower: 2000
+  AirResistance: 4
+  JumpPower: 0.3
+  OnGroundDistanse: 1
+  OnGroundSphereScale: 0.3
+  BrakePower: 0.9
 --- !u!1 &578908072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1194,7 +1202,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: b4457a88edf83404992823f4074e5cc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6538,7 +6546,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: b4457a88edf83404992823f4074e5cc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7275,7 +7283,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: b4457a88edf83404992823f4074e5cc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7645,7 +7653,7 @@ Transform:
   m_GameObject: {fileID: 1986551309}
   serializedVersion: 2
   m_LocalRotation: {x: 0.18635479, y: -0, z: -0, w: 0.98248255}
-  m_LocalPosition: {x: 1.06, y: 9.63, z: 1.6}
+  m_LocalPosition: {x: 1.06, y: 8.28, z: 1.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
