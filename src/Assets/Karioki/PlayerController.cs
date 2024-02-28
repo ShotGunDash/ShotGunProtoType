@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 using static Unity.VisualScripting.Member;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
@@ -10,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private GameObject LeftArrow; 
     [SerializeField] private GameObject RightArrow;
+    [SerializeField] private VisualEffect effect;
     [Space]
     [Header("基本パラメータ")]
     [SerializeField] private float Intarval = 0.4f;
@@ -19,7 +21,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float OnGroundDistanse = 1.0f;
     [SerializeField] private float OnGroundSphereScale = 0.3f;
     [SerializeField] private float BrakePower = 0.9f;
-
+    
     private Rigidbody rb;
     private float time = 0;
     private Vector3 LeftMuzzle, RightMuzzle;
@@ -81,7 +83,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         BulletLineControl(LeftArrow, LeftMuzzle);
         BulletLineControl(RightArrow, RightMuzzle);
@@ -124,8 +126,8 @@ public class PlayerController : MonoBehaviour
         {
             if (!Arrow.activeSelf)
                 Arrow.SetActive(true);
-
-            Arrow.transform.rotation = Quaternion.LookRotation(Muzzle) * Quaternion.Euler(90, 0, 0);
+            Quaternion look = Muzzle == Vector3.zero ? Quaternion.identity : Quaternion.LookRotation(Muzzle);
+            Arrow.transform.rotation = look * Quaternion.Euler(90, 0, 0);
         }
         else
         {
@@ -133,12 +135,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     void IsShot(Vector3 Muzzle, bool CheckTrigger)
     {
         Vector3  Forward = CheckTrigger ? Vector3.down * JumpPower : Muzzle;
         time = 0;
         rb.velocity = Vector3.zero;
         rb.AddForce(-Forward * BulletPower);
+
+        Quaternion look = Muzzle == Vector3.zero ? Quaternion.identity : Quaternion.LookRotation(Muzzle);
+        effect.transform.rotation = look * Quaternion.Euler(CheckTrigger ? 90 : 0, 0, 0);
+        effect.SendEvent("OnPlay");
     }
 }

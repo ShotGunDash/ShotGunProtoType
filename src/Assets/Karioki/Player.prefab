@@ -271,6 +271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LeftArrow: {fileID: 511349955907202105}
   RightArrow: {fileID: 4536943477185835500}
+  effect: {fileID: 7313250123440683897, guid: edf23fd5661533f429698eb2576b406b, type: 3}
   Intarval: 0.4
   BulletPower: 2000
   AirResistance: 4
