@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 83319578}
   - component: {fileID: 83319577}
   - component: {fileID: 83319576}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 168414813}
   - component: {fileID: 168414812}
   - component: {fileID: 168414811}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,6 +748,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8834485812479291679, guid: 18e787eb72db4924b9213acb677eb057,
         type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8834485812479291679, guid: 18e787eb72db4924b9213acb677eb057,
+        type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -801,7 +806,7 @@ GameObject:
   - component: {fileID: 407612672}
   - component: {fileID: 407612671}
   - component: {fileID: 407612670}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1186,7 +1191,7 @@ GameObject:
   - component: {fileID: 683916121}
   - component: {fileID: 683916120}
   - component: {fileID: 683916119}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1676,7 +1681,7 @@ GameObject:
   - component: {fileID: 961047593}
   - component: {fileID: 961047592}
   - component: {fileID: 961047591}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2036,7 +2041,7 @@ GameObject:
   - component: {fileID: 1025353115}
   - component: {fileID: 1025353114}
   - component: {fileID: 1025353113}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2181,7 +2186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1148592353
 Transform:
   m_ObjectHideFlags: 0
@@ -2191,7 +2196,7 @@ Transform:
   m_GameObject: {fileID: 1148592352}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.9, y: 0, z: 13.8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2221,7 +2226,7 @@ GameObject:
   - component: {fileID: 1313566745}
   - component: {fileID: 1313566744}
   - component: {fileID: 1313566743}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2365,7 +2370,7 @@ GameObject:
   - component: {fileID: 1551157939}
   - component: {fileID: 1551157938}
   - component: {fileID: 1551157937}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2941,7 +2946,7 @@ GameObject:
   - component: {fileID: 1884992814}
   - component: {fileID: 1884992813}
   - component: {fileID: 1884992812}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3159,7 +3164,7 @@ GameObject:
   - component: {fileID: 1992987732}
   - component: {fileID: 1992987731}
   - component: {fileID: 1992987730}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3653,7 +3658,7 @@ Transform:
   m_GameObject: {fileID: 2087939290}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1, y: 1.21, z: 14.08}
+  m_LocalPosition: {x: 0, y: 1.2, z: 14}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3672,9 +3677,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 963258544}
-  MoveDistance: 8
+  MoveDistance: 9
   MoveBrake: 0.55
-  GetDistance: 0.3
+  GetDistance: 0.6
 --- !u!54 &2087939294
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3694,7 +3699,7 @@ Rigidbody:
     m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
@@ -3715,7 +3720,7 @@ SphereCollider:
     m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 448
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
