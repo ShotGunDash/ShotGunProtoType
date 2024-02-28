@@ -33,7 +33,7 @@ public class Respawn : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         RespawnTime += Time.deltaTime;
         if(RespawnTime > RespawnIntarval)

@@ -18,7 +18,7 @@ public class SpawnerEnemyController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         SpawnTime += Time.deltaTime;
         DestroyTime += Time.deltaTime;
