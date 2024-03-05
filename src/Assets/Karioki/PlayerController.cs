@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject LeftArrow; 
     [SerializeField] private GameObject RightArrow;
     [SerializeField] private VisualEffect effect;
+    [Header("プレハブ外部")]
+    [SerializeField] private GameObject UIobject;
     [Space]
     [Header("基本パラメータ")]
     [SerializeField] private float Intarval = 0.4f;
@@ -25,13 +27,15 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private float time = 0;
     private Vector3 LeftMuzzle, RightMuzzle;
-    private bool LeftShot, RightShot, LeftSteyTrigger, RightSteyTrigger;
+    private bool PouseButton,LeftShot, RightShot, LeftSteyTrigger, RightSteyTrigger;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.drag = AirResistance;
     }
+
+  //InputAcsions
 
     public void OnLeftStick(InputAction.CallbackContext context)
     {
@@ -66,6 +70,21 @@ public class PlayerController : MonoBehaviour
         RightSteyTrigger = isTrigger;
     }
 
+    public void OnPouseButton(InputAction.CallbackContext context)
+    {
+        var isTrigger = context.ReadValueAsButton();
+        PouseButton = isTrigger;
+        OpenPouseUI();
+    }
+
+    // 関数
+
+    private void OpenPouseUI()
+    {
+        UIobject.SetActive(true);
+        Time.timeScale= 0f;
+    }
+
     private bool OnGround()
     {
         RaycastHit hit; 
@@ -74,6 +93,8 @@ public class PlayerController : MonoBehaviour
         if (Trigger)Debug.Log(hit.collider.gameObject.name);
         return Trigger;
     }
+
+    //　ギズモ
 
     void OnDrawGizmos()
     {
