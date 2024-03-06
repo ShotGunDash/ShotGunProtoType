@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class HitController : MonoBehaviour
 {
@@ -19,17 +20,20 @@ public class HitController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.name);
         var HitTarget = other.GetComponent<EnemyInterface>();
         if (HitTarget == null)
             return;
 
         if (gun == Gun.L)
         {
-            HitTarget.AddDamage(Player,PlayerController.LeftBullet[PlayerController.LeftShotNum].GetPower());
+            BulletClass bullet = PlayerController.LeftBullet[PlayerController.LeftShotNum];
+            HitTarget.AddDamage(Player,bullet.GetPower(),bullet.GetRecoil());
         }
         else if (gun == Gun.R)
         {
-            HitTarget.AddDamage(Player,PlayerController.RightBullet[PlayerController.RightShotNum].GetPower());
+            BulletClass bullet = PlayerController.RightBullet[PlayerController.RightShotNum];
+            HitTarget.AddDamage(Player,bullet.GetPower(),bullet.GetRecoil());
         }
 
     }
