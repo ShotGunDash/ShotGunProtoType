@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface EnemyInterface
 {
-    void AddDamage(GameObject player,float damage);
+    void AddDamage(GameObject player,int damage,float recoil);
+    void Dead();
 }

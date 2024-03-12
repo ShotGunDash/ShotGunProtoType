@@ -11,7 +11,7 @@ public class BulletClass
     private int ID;
     private int level;
     private BulletData mBullet;
-    private float mPower;
+    private int mPower;
     private float mRecoil;
     private float mAngle;
     private float mRange;
@@ -51,9 +51,13 @@ public class BulletClass
         return mRange;
     }
 
-    public float GetPower()
+    public int GetPower()
     {
         return mPower;
+    }
+    public float GetRecoil()
+    {
+        return mRecoil;
     }
     public void Shot(string LR)
     {
