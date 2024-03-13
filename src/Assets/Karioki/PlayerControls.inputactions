@@ -30,7 +30,7 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "RightShot",
@@ -66,6 +66,24 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Press",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LeftBulletChange",
+                    "type": "Button",
+                    "id": "b45b25ba-8fed-47a7-8580-79197ced06a0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RightBulletChange",
+                    "type": "Button",
+                    "id": "384d07d5-7ff5-4f16-8659-2289d5011729",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": true
                 }
             ],
@@ -232,6 +250,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "PouseButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d913a49b-d57d-4ff2-bb2e-5ea255463ae2",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftBulletChange",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "75e7bca2-97e0-47bd-a96b-60ee07cefd40",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightBulletChange",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
