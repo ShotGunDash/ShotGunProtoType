@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2777354107139404762
 Transform:
   m_ObjectHideFlags: 0
@@ -153,4 +153,4 @@ MonoBehaviour:
   DestroyIntarval: 15
   lockOnIntarval: 3
   MissilePower: 20
-  RandomRange: 3
+  RandomRange: 5

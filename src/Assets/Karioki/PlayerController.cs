@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private float time = 0;
     private Vector3 LeftMuzzle, RightMuzzle;
-    private bool PouseButton,LeftShot, RightShot, LeftSteyTrigger, RightSteyTrigger;
+    private bool PouseButton,LeftShot, RightShot, LeftSteyTrigger, RightSteyTrigger,RightChange, LeftChange;
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +69,16 @@ public class PlayerController : MonoBehaviour
         var isTrigger = context.ReadValueAsButton();
         RightSteyTrigger = isTrigger;
     }
+    public void OnRightChange(InputAction.CallbackContext context)
+    {
+        var isTrigger = context.ReadValueAsButton();
+        RightChange = isTrigger;
+    }
+    public void OnLeftChange(InputAction.CallbackContext context)
+    {
+        var isTrigger = context.ReadValueAsButton();
+        LeftChange = isTrigger;
+    }
 
     public void OnPouseButton(InputAction.CallbackContext context)
     {
@@ -106,6 +116,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        BulletChange();
         BulletLineControl(LeftArrow, LeftMuzzle);
         BulletLineControl(RightArrow, RightMuzzle);
         
@@ -139,6 +150,17 @@ public class PlayerController : MonoBehaviour
             time = 0;
             //source.Play();
         }*/
+    }
+    void BulletChange()
+    {
+        if (LeftChange)
+        {
+            Debug.Log("左ボタン");
+        }
+        if (RightChange)
+        {
+            Debug.Log("右ボタン");
+        }
     }
 
     void BulletLineControl(GameObject Arrow, Vector3 Muzzle)
