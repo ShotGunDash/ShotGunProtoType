@@ -16,11 +16,11 @@ MonoBehaviour:
   - type: 0
     name: "\u901A\u5E38\u5F3E"
     ID: 0
-    power: 10
-    recoil: 500
+    power: 1
+    recoil: 0
     angle: 10
     range: 5
-    Levelpower: 2
+    Levelpower: 10
     Levelrecoil: 5
     Levelangle: 0
     Levelrange: 1
@@ -28,7 +28,7 @@ MonoBehaviour:
     name: "\u62E1\u6563\u5F3E"
     ID: 1
     power: 1
-    recoil: 1000
+    recoil: 0
     angle: 30
     range: 3
     Levelpower: 1

@@ -20,7 +20,6 @@ public class HitController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         var HitTarget = other.GetComponent<EnemyInterface>();
         if (HitTarget == null)
             return;

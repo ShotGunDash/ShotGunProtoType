@@ -10,7 +10,7 @@ public class FukanoPlayerController : MonoBehaviour
     [SerializeField] private ShotEvent shotEvent;
     public int LeftShotNum = 1;
     public int RightShotNum = 0;
-
+    public mParc mParc = new mParc();
     private void Start()
     {
         SetBullet(0,"L");
@@ -19,6 +19,7 @@ public class FukanoPlayerController : MonoBehaviour
         SetBullet(0, "R");
         shotEvent.ChangeBullet(RightBullet[LeftShotNum].GetAngle(), RightBullet[LeftShotNum].GetRange(), "R");
         SetBullet(1, "R");
+        Debug.Log(mParc.Brake);
     }
    
     public void Leftshot()

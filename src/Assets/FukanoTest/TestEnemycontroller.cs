@@ -9,7 +9,7 @@ public class TestEnemycontroller : MonoBehaviour,EnemyInterface
     [SerializeField]private int HP;
     [SerializeField] private List<GameObject> DropItems = new List<GameObject>();
     private NavMeshAgent agent;
-
+    private ParcController parcController => ParcController.instance;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,7 +19,8 @@ public class TestEnemycontroller : MonoBehaviour,EnemyInterface
     {
         rb.isKinematic = false;
         agent.enabled = false;
-        HP -= damage;
+        HP -= damage + parcController.mParc.Power;
+        Debug.Log(damage + parcController.mParc.Power+"ダメージ受けました。残り"+HP);
         if (HP <= 0)
             Dead();
         Vector3 angle = this.transform.position - player.transform.position;

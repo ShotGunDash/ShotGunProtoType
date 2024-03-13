@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 8834485812479291679, guid: 18e787eb72db4924b9213acb677eb057, type: 3}
+  MoveSpeed: 3.5
 --- !u!195 &5619753527692616754
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -158,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b827f9771dabf1748a3fb4fe26af0882, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 10
+  HP: 2
   DropItems:
   - {fileID: 6356093117791548040, guid: 84b3fe68ee40881499c8ef9592807cb2, type: 3}
 --- !u!54 &3862243218454638751
