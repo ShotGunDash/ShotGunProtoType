@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ShotEnemyController : MonoBehaviour
+public class MIssileLauncherEnemyController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject Player,Bullet,Muzzle;
+    private GameObject Player, Missile, LeftLauncher, RightLauncher;
     private NavMeshAgent Agent;
     [SerializeField] private float SpawnIntarval = 3f;
     [SerializeField] private float MoveSpeed = 3.5f;
@@ -49,7 +48,8 @@ public class ShotEnemyController : MonoBehaviour
             if (TimeCount > SpawnIntarval)
             {
                 TimeCount = 0f;
-                GameObject.Instantiate(Bullet, Muzzle.transform.position, Quaternion.identity);
+                GameObject.Instantiate(Missile, LeftLauncher.transform.position, Quaternion.identity);
+                GameObject.Instantiate(Missile, RightLauncher.transform.position, Quaternion.identity);
             }
         }
         else
