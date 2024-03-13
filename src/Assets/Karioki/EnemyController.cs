@@ -21,6 +21,15 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Agent.destination = Player.transform.position;
+        if (Agent.enabled == true)
+        {
+            if (Agent.pathStatus == NavMeshPathStatus.PathInvalid)
+            {
+                Destroy(this.gameObject);
+            }
+
+            else
+                Agent.destination = Player.transform.position;
+        }
     }
 }

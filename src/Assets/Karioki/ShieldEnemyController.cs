@@ -1,18 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ShotEnemyController : MonoBehaviour
+public class ShieldEnemyController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject Player,Bullet,Muzzle;
+    private GameObject Player, Bullet, Muzzle;
     private NavMeshAgent Agent;
     [SerializeField] private float SpawnIntarval = 3f;
     [SerializeField] private float MoveSpeed = 3.5f;
     [SerializeField] private float Distance = 12f;
-
+    [SerializeField] private float RotationSpeed = 0.1f;
     private float TimeCount = 0;
     // Start is called before the first frame update
     void Start()
@@ -37,14 +36,18 @@ public class ShotEnemyController : MonoBehaviour
         }
         if (Agent.remainingDistance < Distance)
         {
-            TimeCount += Time.deltaTime;
             Agent.speed = 0f;
-
+            float roteBefore = transform.rotation.y;
             // ƒ^[ƒQƒbƒg‚Ì•ûŒü‚Ö‚Ì‰ñ“]
             Vector3 direction = Player.transform.position - transform.position;
             direction.y = 0.0f;
             Quaternion lookRotation = Quaternion.LookRotation(direction, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, 0.3f);
+            transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, RotationSpeed);
+
+            float roteValue = transform.rotation.y - roteBefore;
+            Debug.Log(roteValue);
+            if(roteValue <= 0.01f && roteValue >= -0.01f)
+                TimeCount += Time.deltaTime;
 
             if (TimeCount > SpawnIntarval)
             {
@@ -54,7 +57,7 @@ public class ShotEnemyController : MonoBehaviour
         }
         else
         {
-            TimeCount = 0f;
+            //TimeCount = 0f;
             Agent.speed = MoveSpeed;
         }
     }
