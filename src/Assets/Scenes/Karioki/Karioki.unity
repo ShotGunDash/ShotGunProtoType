@@ -355,6 +355,21 @@ PrefabInstance:
       propertyPath: m_ResetSeedOnPlay
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7313250123440683897, guid: edf23fd5661533f429698eb2576b406b,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[6].m_Value.x
+      value: 29.743431
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313250123440683897, guid: edf23fd5661533f429698eb2576b406b,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[6].m_Value.y
+      value: 14.931455
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313250123440683897, guid: edf23fd5661533f429698eb2576b406b,
+        type: 3}
+      propertyPath: m_PropertySheet.m_Vector4f.m_Array.Array.data[6].m_Value.z
+      value: 10.756267
+      objectReference: {fileID: 0}
     - target: {fileID: 7563921677976414284, guid: edf23fd5661533f429698eb2576b406b,
         type: 3}
       propertyPath: m_LocalPosition.x
