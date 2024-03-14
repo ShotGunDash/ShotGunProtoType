@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BaseFire2
-  m_Shader: {fileID: -6465566751694194690, guid: 97f75dcf4faae54449ac18034495ce04,
+  m_Name: heatDistorion
+  m_Shader: {fileID: -6465566751694194690, guid: 4b1b93d837937f141b7927fefa6cdb46,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -17,7 +17,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2450
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -26,10 +26,6 @@ Material:
     m_TexEnvs:
     - _BaseMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _BlackSmokeTexture:
-        m_Texture: {fileID: 2800000, guid: 87a59a1a9948af7439d8096279983242, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -56,8 +52,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MainTexture:
-        m_Texture: {fileID: 2800000, guid: 47399266ca5a2b646b729ea26442d69b, type: 3}
+    - _Mask:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTexture:
+        m_Texture: {fileID: 10300, guid: 0000000000000000f000000000000000, type: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -92,7 +92,6 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _BlackSmokeAlphaScale: 12.42
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -103,17 +102,13 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _DisolveAmount: 0.59
-    - _DissolveScale: 5
-    - _DistortionAmount: 0.1
-    - _DistortionScale: 7.5
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _MainFireAlphaScale: 24.9
+    - _HeatDistortion: 0.419
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
@@ -132,17 +127,12 @@ Material:
     - _ZWriteControl: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BlackSmokeColor: {r: 0.09433961, g: 0.0725347, b: 0.0725347, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DissolveSpeed: {r: 0.1, g: 0.5, b: 0, a: 0}
-    - _DistortionSpeed: {r: 0, g: 0.3, b: 0, a: 0}
+    - _DistortionSpeed: {r: 0, g: 0.21, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _MainColor: {r: 1.8938675, g: 4.924002, b: 7.0438585, a: 0}
-    - _MainScrollSpeed: {r: 0, g: 0.3, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SubScrollSpeed: {r: 0.1, g: 0.5, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &9104325200409757352
+--- !u!114 &3753065825128143180
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

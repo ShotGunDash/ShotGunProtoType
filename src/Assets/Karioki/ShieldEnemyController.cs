@@ -45,7 +45,7 @@ public class ShieldEnemyController : MonoBehaviour
             transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, RotationSpeed);
 
             float roteValue = transform.rotation.y - roteBefore;
-            Debug.Log(roteValue);
+            //Debug.Log(roteValue);
             if(roteValue <= 0.01f && roteValue >= -0.01f)
                 TimeCount += Time.deltaTime;
 
