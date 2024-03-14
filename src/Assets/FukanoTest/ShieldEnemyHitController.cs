@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ShieldEnemyController : MonoBehaviour, EnemyInterface
+public class ShieldEnemyHitController : MonoBehaviour, EnemyInterface
 {
     private Rigidbody rb;
     [SerializeField] private int HP;
