@@ -20,10 +20,7 @@ MonoBehaviour:
       y: 0
       width: 100
       height: 100
-    contents:
-    - model: {fileID: 0}
-      id: 0
-      isStickyNote: 0
+    contents: []
   stickyNoteInfos: []
   categories:
   - name: Graphic
@@ -32,10 +29,10 @@ MonoBehaviour:
     collapsed: 0
   uiBounds:
     serializedVersion: 2
-    x: -0
+    x: 0
     y: -419
     width: 1564
-    height: 2158
+    height: 2160
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -788,7 +785,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614645}
   m_ExposedName: Speed
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 2
   m_Category: Setting
   m_Min:
     m_Type:
@@ -868,7 +865,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614654}
   m_ExposedName: Size
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 3
   m_Category: Setting
   m_Min:
     m_Type:
@@ -2256,7 +2253,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614782}
   m_ExposedName: SetLifeTime
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 1
   m_Category: Setting
   m_Min:
     m_Type:
@@ -2277,7 +2274,7 @@ MonoBehaviour:
       inputSlot: {fileID: 8926484042661614706}
     - outputSlot: {fileID: 8926484042661614782}
       inputSlot: {fileID: 8926484042661614784}
-    position: {x: 577, y: 420}
+    position: {x: 545, y: 420}
     expandedSlots: []
     expanded: 0
 --- !u!114 &8926484042661614782
@@ -2331,7 +2328,7 @@ MonoBehaviour:
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 114350483966674976}
   m_Children: []
-  m_UIPosition: {x: 699, y: 459}
+  m_UIPosition: {x: 671, y: 440}
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
