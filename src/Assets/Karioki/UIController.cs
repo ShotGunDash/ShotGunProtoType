@@ -26,7 +26,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Rightbutton);
+        //Debug.Log(Rightbutton);
         if(Rightbutton) { CroseUIWindows(); }
     }
 
