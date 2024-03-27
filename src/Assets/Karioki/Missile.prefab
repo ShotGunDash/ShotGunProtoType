@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2777354107139404762
 Transform:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 8834485812479291679, guid: 18e787eb72db4924b9213acb677eb057, type: 3}
   Target: {fileID: 519886328483248976, guid: 12eb9191a646aeb49ab58e4a5e473738, type: 3}
-  DestroyIntarval: 15
+  DestroyIntarval: 7
   lockOnIntarval: 3
   MissilePower: 20
   RandomRange: 5

@@ -100,9 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 8834485812479291679, guid: 18e787eb72db4924b9213acb677eb057, type: 3}
-  MoveDistance: 9
-  MoveBrake: 0.55
-  GetDistance: 0.6
+  MoveDistance: 10
+  MoveSpeed: 3
+  GetDistance: 0.9
+  rarity: 0
 --- !u!135 &9020482081141408244
 SphereCollider:
   m_ObjectHideFlags: 0
