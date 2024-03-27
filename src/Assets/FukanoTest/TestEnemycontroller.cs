@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class TestEnemycontroller : MonoBehaviour,EnemyInterface
     [SerializeField] private List<GameObject> DropItems = new List<GameObject>();
     private NavMeshAgent agent;
     private ParcController parcController => ParcController.instance;
+    private float DotTime = 0;
+    private float DotMaxTime = 1;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -19,14 +22,40 @@ public class TestEnemycontroller : MonoBehaviour,EnemyInterface
     {
         rb.isKinematic = false;
         agent.enabled = false;
-        HP -= damage + parcController.mParc.Power;
-        Debug.Log(damage + parcController.mParc.Power+"ダメージ受けました。残り"+HP);
+        HP -= damage ;
+        Debug.Log(damage+"ダメージ受けました。残り"+HP);
         if (HP <= 0)
             Dead();
         Vector3 angle = this.transform.position - player.transform.position;
         float S = Mathf.Sqrt(angle.x+angle.y+angle.z);
         rb.AddForce(new Vector3(angle.x/S,0,angle.z/S)*recoil);
         StartCoroutine("GetUp");
+    }
+
+    public void ShieldPenetrationDamage(GameObject player, int damage, float recoil)
+    {
+        rb.isKinematic = false;
+        agent.enabled = false;
+        HP -= damage;
+        Debug.Log(damage+ "ダメージ受けました。残り" + HP);
+        if (HP <= 0)
+            Dead();
+        Vector3 angle = this.transform.position - player.transform.position;
+        float S = Mathf.Sqrt(angle.x + angle.y + angle.z);
+        rb.AddForce(new Vector3(angle.x / S, 0, angle.z / S) * recoil);
+        StartCoroutine("GetUp");
+    }
+
+    public void DotDamage(int damage)
+    {
+        DotTime += Time.deltaTime;
+        if (DotTime >= DotMaxTime)
+        {
+            HP -= damage;
+            if (HP <= 0)
+                Dead();
+            DotTime = 0;
+        }
     }
     public void Dead()
     {

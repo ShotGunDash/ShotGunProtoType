@@ -5,8 +5,8 @@ using UnityEngine;
 public class PlayerHPController : MonoBehaviour
 {
     // Start is called before the first frame update
-   [SerializeField] private int HP;
-    private int MaxHP;
+    public int HP;
+    public int MaxHP;
     private Vector3 RePos;
 
     private void Start()
@@ -22,6 +22,15 @@ public class PlayerHPController : MonoBehaviour
         {
             HP = 0;
             Dead();
+        }
+    }
+
+    public void Heal(int Recovery)
+    {
+        HP += Recovery;
+        if(HP> MaxHP) 
+        {
+            HP = MaxHP;
         }
     }
 

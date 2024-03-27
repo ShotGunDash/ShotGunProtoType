@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: ParcDatas
   m_EditorClassIdentifier: 
   ParcData:
-  - name: PowerUP
-    image: {fileID: 21300000, guid: cfdbc2330117d5d478d433038154c9c4, type: 3}
+  - name: "\u5C04\u6483\u59FF\u52E2\u6539\u5584"
+    image: {fileID: 21300000, guid: 21b9b60cf375f394ab17cc54d91fb64c, type: 3}
     explanation: 
     id: 0
     power: 1
@@ -27,7 +27,22 @@ MonoBehaviour:
     getPartsProbability: 0
     avoidanceProbability: 0
     brake: 0
-  - name: CoolTimeUP
+    contactDamage: 0
+    recovery: 0
+    fairyParc:
+      MaxPower: 0
+      MaxAvoidance: 0
+      MaxCoolTime: 0
+      MaxTime: 0
+    bloodWetParc:
+      RestHPPercent: 0
+      MaxPower: 0
+      MaxCoolTime: 0
+      MaxSpeed: 0
+    devilWatch:
+      MaxPower: 0
+      MaxTime: 0
+  - name: "\u6B66\u5668\u8ABF\u6574"
     image: {fileID: 21300000, guid: 7111e6e6d76f7c44ab8b0ce7d5d7eaca, type: 3}
     explanation: 
     id: 1
@@ -41,8 +56,23 @@ MonoBehaviour:
     getPartsProbability: 0
     avoidanceProbability: 0
     brake: 0
-  - name: HPUP
-    image: {fileID: 21300000, guid: 3f2dc856d98c443479f89b8bdc979e76, type: 3}
+    contactDamage: 0
+    recovery: 0
+    fairyParc:
+      MaxPower: 0
+      MaxAvoidance: 0
+      MaxCoolTime: 0
+      MaxTime: 0
+    bloodWetParc:
+      RestHPPercent: 0
+      MaxPower: 0
+      MaxCoolTime: 0
+      MaxSpeed: 0
+    devilWatch:
+      MaxPower: 0
+      MaxTime: 0
+  - name: "\u751F\u5B58\u8A13\u7DF4"
+    image: {fileID: 21300000, guid: da8862a1d44053e4aa72263ed9090026, type: 3}
     explanation: 
     id: 2
     power: 0
@@ -55,17 +85,163 @@ MonoBehaviour:
     getPartsProbability: 0
     avoidanceProbability: 0
     brake: 0
-  - name: Speed
-    image: {fileID: 21300000, guid: a09981d3501ad414592b5d854c2cdca3, type: 3}
+    contactDamage: 0
+    recovery: 0
+    fairyParc:
+      MaxPower: 0
+      MaxAvoidance: 0
+      MaxCoolTime: 0
+      MaxTime: 0
+    bloodWetParc:
+      RestHPPercent: 0
+      MaxPower: 0
+      MaxCoolTime: 0
+      MaxSpeed: 0
+    devilWatch:
+      MaxPower: 0
+      MaxTime: 0
+  - name: "\u30A2\u30AF\u30ED\u30D0\u30C3\u30C8"
+    image: {fileID: 21300000, guid: 728f40284a4d2ca40ae7d3c3d5dcf625, type: 3}
     explanation: 
     id: 3
     power: 0
     recoil: 0
     speed: 1
     coolTime: 0
-    hp: 1
+    hp: 0
     criticalProbability: 0
     criticalPower: 0
     getPartsProbability: 0
     avoidanceProbability: 0
     brake: 0
+    contactDamage: 0
+    recovery: 0
+    fairyParc:
+      MaxPower: 0
+      MaxAvoidance: 0
+      MaxCoolTime: 0
+      MaxTime: 0
+    bloodWetParc:
+      RestHPPercent: 0
+      MaxPower: 0
+      MaxCoolTime: 0
+      MaxSpeed: 0
+    devilWatch:
+      MaxPower: 0
+      MaxTime: 0
+  - name: "\u4E0D\u5E78\u306A\u5996\u7CBE"
+    image: {fileID: 21300000, guid: 41f97064db863fb4d9de56897bda381a, type: 3}
+    explanation: 
+    id: 4
+    power: 0
+    recoil: 0
+    speed: 0
+    coolTime: 0
+    hp: 0
+    criticalProbability: 0
+    criticalPower: 0
+    getPartsProbability: 0
+    avoidanceProbability: 0
+    brake: 0
+    contactDamage: 0
+    recovery: 0
+    fairyParc:
+      MaxPower: 5
+      MaxAvoidance: 0
+      MaxCoolTime: 0
+      MaxTime: 10
+    bloodWetParc:
+      RestHPPercent: 0
+      MaxPower: 0
+      MaxCoolTime: 0
+      MaxSpeed: 0
+    devilWatch:
+      MaxPower: 0
+      MaxTime: 0
+  - name: "\u81C6\u75C5\u306A\u5996\u7CBE"
+    image: {fileID: 21300000, guid: 5650037e5c7ed9c4082b543b983ed44d, type: 3}
+    explanation: 
+    id: 5
+    power: 0
+    recoil: 0
+    speed: 0
+    coolTime: 0
+    hp: 0
+    criticalProbability: 0
+    criticalPower: 0
+    getPartsProbability: 0
+    avoidanceProbability: 0
+    brake: 0
+    contactDamage: 0
+    recovery: 0
+    fairyParc:
+      MaxPower: 0
+      MaxAvoidance: 5
+      MaxCoolTime: 0
+      MaxTime: 10
+    bloodWetParc:
+      RestHPPercent: 0
+      MaxPower: 0
+      MaxCoolTime: 0
+      MaxSpeed: 0
+    devilWatch:
+      MaxPower: 0
+      MaxTime: 0
+  - name: "\u5E78\u305B\u306A\u5996\u7CBE"
+    image: {fileID: 21300000, guid: 31c76ec94693e6c459e6787d005c2738, type: 3}
+    explanation: 
+    id: 6
+    power: 0
+    recoil: 0
+    speed: 0
+    coolTime: 0
+    hp: 0
+    criticalProbability: 0
+    criticalPower: 0
+    getPartsProbability: 0
+    avoidanceProbability: 0
+    brake: 0
+    contactDamage: 0
+    recovery: 0
+    fairyParc:
+      MaxPower: 0
+      MaxAvoidance: 0
+      MaxCoolTime: 0
+      MaxTime: 10
+    bloodWetParc:
+      RestHPPercent: 0
+      MaxPower: 0
+      MaxCoolTime: 0
+      MaxSpeed: 0
+    devilWatch:
+      MaxPower: 0
+      MaxTime: 0
+  - name: "\u51B7\u3081\u305F\u624B\u9320"
+    image: {fileID: 21300000, guid: 31c76ec94693e6c459e6787d005c2738, type: 3}
+    explanation: 
+    id: 7
+    power: 10
+    recoil: 0
+    speed: 0
+    coolTime: -10
+    hp: 0
+    criticalProbability: 0
+    criticalPower: 0
+    getPartsProbability: 0
+    avoidanceProbability: 0
+    brake: 0
+    contactDamage: 0
+    recovery: 0
+    fairyParc:
+      MaxPower: 0
+      MaxAvoidance: 0
+      MaxCoolTime: 0
+      MaxTime: 0
+    bloodWetParc:
+      RestHPPercent: 0
+      MaxPower: 0
+      MaxCoolTime: 0
+      MaxSpeed: 0
+    devilWatch:
+      MaxPower: 0
+      MaxTime: 0
