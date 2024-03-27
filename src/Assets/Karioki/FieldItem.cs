@@ -5,10 +5,19 @@ using static UnityEngine.GraphicsBuffer;
 
 public class FieldItem : MonoBehaviour
 {
+    private enum Rarity
+    {
+        Common,
+        Uncommon,
+        Rare,
+        Epic,
+        Legendary,
+    }
     [SerializeField] private GameObject Player;
     [SerializeField] private float MoveDistance = 8f;
     [SerializeField] private float MoveSpeed= 2f;
     [SerializeField] private float GetDistance = 0.1f;
+    [SerializeField] private Rarity rarity;
     private Rigidbody rb;
     private Collider co;
     // Start is called before the first frame update
@@ -32,7 +41,7 @@ public class FieldItem : MonoBehaviour
       
         if (IsDistance < GetDistance)
         {
-            IsGet();
+            IsGet(rarity);
         }
         else if (IsDistance < MoveDistance) 
         {
@@ -43,9 +52,12 @@ public class FieldItem : MonoBehaviour
         {
             rb.AddForce(Vector3.down);
         }
+        if (transform.position.y < -10)
+            Destroy(this);
     }
-    void IsGet()
+    void IsGet(Rarity _rarity)
     {
+
         Destroy(this.gameObject);
     }
 }
