@@ -14,6 +14,7 @@ public class ChargeEnemyController : MonoBehaviour
     private NavMeshAgent Agent;
     private float TimeCount = 0;
     private Rigidbody rb;
+    private Vector3 ChargeForward;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,11 +52,13 @@ public class ChargeEnemyController : MonoBehaviour
             Agent.speed = 0f;
            
             Vector3 direction = Player.transform.position - transform.position;
-            direction.y = 0.0f;
+            
 
             // ターゲットの方向への回転
             if (TimeCount < ChargeIntarval)
             {
+                ChargeForward = direction.normalized;
+                direction.y = 0.0f;
                 Quaternion lookRotation = Quaternion.LookRotation(direction, Vector3.up);
                 transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, 0.3f);
             }
@@ -72,7 +75,7 @@ public class ChargeEnemyController : MonoBehaviour
                 Agent.enabled = false;
                 rb.isKinematic = false;
 
-                rb.AddForce(direction.normalized * ChargePower);
+                rb.AddForce(ChargeForward * ChargePower);
             }
            
         }
@@ -83,6 +86,8 @@ public class ChargeEnemyController : MonoBehaviour
             if(transform.position.y < -10f)
             {
                 transform.position = new Vector3(transform.position.x, 2f, transform.position.z);
+                rb.isKinematic = true;
+                Agent.enabled = true;
             }
         }
     }

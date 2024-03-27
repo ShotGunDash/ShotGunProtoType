@@ -54,11 +54,13 @@ public class EnemyMissile : MonoBehaviour
                     transform.position.y,SetTarget.transform.position.z);
             }
 
-            else 
+            else if (SetTarget != null)
             {
                 transform.rotation = Quaternion.LookRotation(SetTarget.transform.position);
-                //Target.transform.position = TargetPos;
-                rb.AddForce((SetTarget.transform.forward.normalized)* MissilePower); 
+                rb.AddForce((SetTarget.transform.forward.normalized)* MissilePower);
+                 
+                if (transform.position.y < 0)
+                    Destroy(SetTarget);
             }    
         }     
     }
@@ -79,7 +81,6 @@ public class EnemyMissile : MonoBehaviour
     {
         if(SetTarget != null)
             Destroy(SetTarget);
-
         Destroy(this.gameObject);
     }
 }
