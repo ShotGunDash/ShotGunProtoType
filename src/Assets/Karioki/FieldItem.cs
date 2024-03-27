@@ -7,11 +7,11 @@ public class FieldItem : MonoBehaviour
 {
     private enum Rarity
     {
-        Common,
-        Uncommon,
-        Rare,
-        Epic,
-        Legendary,
+        Common = 1,
+        Uncommon = 5,
+        Rare = 10,
+        Epic = 15,
+        Legendary = 20,
     }
     [SerializeField] private GameObject Player;
     [SerializeField] private float MoveDistance = 8f;
@@ -57,6 +57,7 @@ public class FieldItem : MonoBehaviour
     }
     void IsGet(Rarity _rarity)
     {
+        int RarityValue = (int)_rarity;
 
         Destroy(this.gameObject);
     }
