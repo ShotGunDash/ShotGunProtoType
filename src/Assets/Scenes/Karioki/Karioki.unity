@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &35040237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,9 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 963258544}
-  Enemy: {fileID: 479088879766696470, guid: 9e2bed632a4d93346aa9e0dcc87ca7d7, type: 3}
   RespawnIntarval: 1
   SpawnRange: 1.8
+  _SpawnClass: {fileID: 11400000, guid: cfa8ec99e9988004da256b49c719c918, type: 2}
+  stageNumber: 0
 --- !u!4 &35040238
 Transform:
   m_ObjectHideFlags: 0
