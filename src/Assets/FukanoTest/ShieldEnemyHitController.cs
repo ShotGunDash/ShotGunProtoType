@@ -13,6 +13,9 @@ public class ShieldEnemyHitController : MonoBehaviour, EnemyInterface
     private ParcController parcController => ParcController.instance;
     private GameObject Player;
 
+    private float DotTime = 1;
+    private float DotMaxTime = 1;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -32,7 +35,7 @@ public class ShieldEnemyHitController : MonoBehaviour, EnemyInterface
         {
             rb.isKinematic = false;
             agent.enabled = false;
-            HP -= damage + parcController.mParc.Power;
+            HP -= damage;
             if (HP <= 0)
                 Dead();
             Vector3 angle = this.transform.position - player.transform.position;
@@ -51,6 +54,33 @@ public class ShieldEnemyHitController : MonoBehaviour, EnemyInterface
             StartCoroutine("GetUp");
         }
        
+    }
+
+    public void ShieldPenetrationDamage(GameObject player, int damage, float recoil)
+    {
+        rb.isKinematic = false;
+        agent.enabled = false;
+        HP -= damage;
+        Debug.Log(damage );
+        if (HP <= 0)
+            Dead();
+        Vector3 angle = this.transform.position - player.transform.position;
+        float S = Mathf.Sqrt(angle.x + angle.y + angle.z);
+        rb.AddForce(new Vector3(angle.x / S, 0, angle.z / S) * recoil);
+        StartCoroutine("GetUp");
+    }
+
+    public void DotDamage(int damage)
+    {
+        DotTime += Time.deltaTime;
+        if(DotTime >= DotMaxTime)
+        {
+            Debug.Log("Dot");
+            HP -= damage;
+            if (HP <= 0)
+                Dead();
+            DotTime = 0;
+        }
     }
     public void Dead()
     {

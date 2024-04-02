@@ -13,25 +13,37 @@ MonoBehaviour:
   m_Name: BulletDatas
   m_EditorClassIdentifier: Assembly-CSharp::BulletDatas
   bulletDatas:
-  - type: 0
-    name: "\u901A\u5E38\u5F3E"
+  - name: "\u901A\u5E38\u5F3E"
     ID: 0
+    type: 0
+    rarity: 0
+    explanation: "\u901A\u5E38\u306E\u653B\u6483\u529B\u3068\u653B\u6483\u7BC4\u56F2\u3092\u6301\u3064\u5F3E\u3002\u30EC\u30A2\u5EA6\u304C\u4F4E\u304F\u30EC\u30D9\u30EB\u304C\u4E0A\u3052\u3084\u3059\u3044"
     power: 1
-    recoil: 0
-    angle: 10
-    range: 5
-    Levelpower: 10
-    Levelrecoil: 5
-    Levelangle: 0
-    Levelrange: 1
-  - type: 0
-    name: "\u62E1\u6563\u5F3E"
-    ID: 1
-    power: 1
-    recoil: 0
-    angle: 30
-    range: 3
+    speed: 1
+    recoil: 1
+    angle: 1
+    range: 1
+    coolTime: 1
     Levelpower: 1
-    Levelrecoil: 10
+    LevelSpeed: 0
+    Levelrecoil: 0
+    Levelangle: 0
+    Levelrange: 0
+    LevelcoolTime: 0
+  - name: "\u62E1\u6563\u5F3E"
+    ID: 1
+    type: 0
+    rarity: 0
+    explanation: "\u901A\u5E38\u3088\u308A\u3082\u5E83\u3044\u653B\u6483\u7BC4\u56F2\u3092\u6301\u3064\u304C\u30AF\u30FC\u30EB\u30BF\u30A4\u30E0\u3068\u79FB\u52D5\u901F\u5EA6\u304C\u3084\u3084\u4F4E\u3044\u5F3E\u3002\u30EC\u30A2\u5EA6\u304C\u4F4E\u304F\u30EC\u30D9\u30EB\u304C\u4E0A\u3052\u3084\u3059\u3044"
+    power: 1
+    speed: 0.9
+    recoil: 1
+    angle: 2
+    range: 1
+    coolTime: 1.1
+    Levelpower: 1
+    LevelSpeed: 0
+    Levelrecoil: 0
     Levelangle: 1
     Levelrange: 0
+    LevelcoolTime: 0

@@ -8,9 +8,10 @@ public class ShotEvent : MonoBehaviour
     [SerializeField] private GameObject RightShot;
     [SerializeField] private ConeCollider LeftCollider;
     [SerializeField] private ConeCollider RightCollider;
+    private ParcController parc => ParcController.instance;
 
    
-    public void NormalShot(float power,float recoil,float angle,float range,string LR)
+    public void Shot(string LR)
     {
        if(LR == "L")
         {
@@ -28,10 +29,7 @@ public class ShotEvent : MonoBehaviour
       //  Debug.Log(power+"‚ÌˆÐ—Í‚¾"+recoil+"‚Ì”½“®‚¾");
     
     }
-    public void FireShot(float power, float recoil, float angle, float range, string LR)
-    {
-        Debug.Log(power + "‚ÌˆÐ—Í‚¾" + recoil + "‚Ì”½“®‚¾ ’n–Ê‚ª”R‚¦‚Ä‚é‚æ");
-    }
+  
 
     public void ChangeBullet(float angle, float range, string LR)
     {
@@ -49,6 +47,7 @@ public class ShotEvent : MonoBehaviour
     {
         yield return new WaitForSeconds(0.04f);
         LeftShot.SetActive(false);
+        
     }
 
     IEnumerator RightFinishShot()

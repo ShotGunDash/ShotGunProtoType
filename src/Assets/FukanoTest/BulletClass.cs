@@ -12,9 +12,11 @@ public class BulletClass
     private int level;
     private BulletData mBullet;
     private int mPower;
+    private float mSpeed;
     private float mRecoil;
     private float mAngle;
     private float mRange;
+    private float mCoolTime;
 
     public void Initialsetting(BulletDatas datas,ShotEvent events,int setID,int setLevel)
     { 
@@ -24,11 +26,13 @@ public class BulletClass
         level = setLevel;
         if(bulletDatabase != null)
         {
-           mBullet = bulletDatabase.bulletDatas[ID];
-           mPower = mBullet.power+(bulletDatabase.bulletDatas[ID].Levelpower*level);
-           mRecoil = mBullet.recoil + (bulletDatabase.bulletDatas[ID].Levelrecoil * level);
-           mAngle = mBullet.angle + (bulletDatabase.bulletDatas[ID].Levelangle * level);
-           mRange = mBullet.range + (bulletDatabase.bulletDatas[ID].Levelrange * level);
+            mBullet = bulletDatabase.bulletDatas[ID];
+            mPower = mBullet.power+(bulletDatabase.bulletDatas[ID].Levelpower*level);
+            mSpeed = mBullet.speed + (bulletDatabase.bulletDatas[ID].LevelSpeed * level);
+            mRecoil = mBullet.recoil + (bulletDatabase.bulletDatas[ID].Levelrecoil * level);
+            mAngle = mBullet.angle + (bulletDatabase.bulletDatas[ID].Levelangle * level);
+            mRange = mBullet.range + (bulletDatabase.bulletDatas[ID].Levelrange * level);
+            mCoolTime = mBullet.coolTime - (bulletDatabase.bulletDatas[ID].LevelcoolTime * level);
         }
        
     }
@@ -36,9 +40,11 @@ public class BulletClass
     {
         level++;
         mPower = mBullet.power + (bulletDatabase.bulletDatas[ID].Levelpower * level);
+        mSpeed = mBullet.speed + (bulletDatabase.bulletDatas[ID].LevelSpeed * level);
         mRecoil = mBullet.recoil + (bulletDatabase.bulletDatas[ID].Levelrecoil * level);
         mAngle = mBullet.angle + (bulletDatabase.bulletDatas[ID].Levelangle * level);
         mRange = mBullet.range + (bulletDatabase.bulletDatas[ID].Levelrange * level);
+        mCoolTime = mBullet.coolTime - (bulletDatabase.bulletDatas[ID].LevelcoolTime * level);
     }
 
     public float  GetAngle()
@@ -55,17 +61,26 @@ public class BulletClass
     {
         return mPower;
     }
+    public float GetSpeed()
+    {
+        return mSpeed;
+    }
     public float GetRecoil()
     {
         return mRecoil;
     }
+
+    public float GetCoolTime()
+    {
+        return mCoolTime;
+    }
+
+    public BulletData GetBullet()
+    {
+        return mBullet;
+    }
     public void Shot(string LR)
     {
-       switch (mBullet.type) 
-        {
-            case BulletData.BulletType.Normal: { shotEvent.NormalShot(mPower,mRecoil,mAngle,mRange,LR); break; }
-            case BulletData.BulletType.Fire: { shotEvent.FireShot(mPower, mRecoil, mAngle, mRange,LR); break; }
-            default: { Debug.Log("ƒWƒƒƒ€‚Á‚½‚º"); break; }
-        }
+        shotEvent.Shot(LR);
     }
 }

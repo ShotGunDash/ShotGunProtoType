@@ -8,13 +8,13 @@ public class EnemyMisfireMissile : MonoBehaviour
     [SerializeField] private float DestroyIntarval = 15f;
     [SerializeField] private float lockOnIntarval = 5f;
     [SerializeField] private float MissilePower = 25f;
-    [SerializeField] private float MissileSpeed = 3f;
+    //[SerializeField] private float MissileSpeed = 3f;
     [SerializeField] private float RotateSpeed = 0.001f;
     [SerializeField] private float RandomRange = 3f;
     [SerializeField] private float Missile_UpForse = 3f;
     [SerializeField] private float MisfireMissilePower = 50f;
     private Rigidbody rb;
-    private float DestroyTime = 0;
+    private float DestroyTime;
     private bool LockOn;
     private Vector3 LockOnPos;
     // Start is called before the first frame update
@@ -23,6 +23,7 @@ public class EnemyMisfireMissile : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody>();
         LockOn = true;
+        DestroyTime = 0;
     }
 
     private void OnTriggerEnter(Collider other)
