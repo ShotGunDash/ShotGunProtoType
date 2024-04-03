@@ -9,6 +9,8 @@ public class PlayerHPController : MonoBehaviour
     public int MaxHP;
     private Vector3 RePos;
 
+    private ParcController parc => ParcController.instance;
+
     private void Start()
     {
         RePos = transform.position;
@@ -18,6 +20,7 @@ public class PlayerHPController : MonoBehaviour
     public void Damage(int damage)
     {
         HP -= damage;
+        parc.DamageParc();
         if(HP <= 0)
         {
             HP = 0;

@@ -20,6 +20,8 @@ public class FieldItem : MonoBehaviour
     [SerializeField] private Rarity rarity;
     private Rigidbody rb;
     private Collider co;
+
+    private ItemManager itemManager => ItemManager.instance;
     // Start is called before the first frame update
     void Start()
     {
@@ -57,7 +59,12 @@ public class FieldItem : MonoBehaviour
     }
     void IsGet(Rarity _rarity)
     {
-        int RarityValue = (int)_rarity;
+        if(itemManager != null) 
+        {
+            int RarityValue = (int)_rarity;
+            itemManager.GetItem(RarityValue);
+        }
+       
 
         Destroy(this.gameObject);
     }

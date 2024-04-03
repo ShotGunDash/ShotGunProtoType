@@ -42,6 +42,15 @@ MonoBehaviour:
     devilWatch:
       MaxPower: 0
       MaxTime: 0
+    toolBoxParc:
+      ParcNum: 1
+    angelWatchParc:
+      MaxPower: 0
+      MaxTime: 0
+    metronomeParc:
+      MaxTime: 0
+      MaxPowerParsent: 0
+      ParcentUp: 0
   - name: "\u6B66\u5668\u8ABF\u6574"
     image: {fileID: 21300000, guid: 7111e6e6d76f7c44ab8b0ce7d5d7eaca, type: 3}
     explanation: 
@@ -71,6 +80,15 @@ MonoBehaviour:
     devilWatch:
       MaxPower: 0
       MaxTime: 0
+    toolBoxParc:
+      ParcNum: 0
+    angelWatchParc:
+      MaxPower: 0
+      MaxTime: 0
+    metronomeParc:
+      MaxTime: 0
+      MaxPowerParsent: 0
+      ParcentUp: 0
   - name: "\u751F\u5B58\u8A13\u7DF4"
     image: {fileID: 21300000, guid: da8862a1d44053e4aa72263ed9090026, type: 3}
     explanation: 
@@ -100,6 +118,15 @@ MonoBehaviour:
     devilWatch:
       MaxPower: 0
       MaxTime: 0
+    toolBoxParc:
+      ParcNum: 0
+    angelWatchParc:
+      MaxPower: 0
+      MaxTime: 0
+    metronomeParc:
+      MaxTime: 0
+      MaxPowerParsent: 0
+      ParcentUp: 0
   - name: "\u30A2\u30AF\u30ED\u30D0\u30C3\u30C8"
     image: {fileID: 21300000, guid: 728f40284a4d2ca40ae7d3c3d5dcf625, type: 3}
     explanation: 
@@ -129,6 +156,15 @@ MonoBehaviour:
     devilWatch:
       MaxPower: 0
       MaxTime: 0
+    toolBoxParc:
+      ParcNum: 0
+    angelWatchParc:
+      MaxPower: 0
+      MaxTime: 0
+    metronomeParc:
+      MaxTime: 0
+      MaxPowerParsent: 0
+      ParcentUp: 0
   - name: "\u4E0D\u5E78\u306A\u5996\u7CBE"
     image: {fileID: 21300000, guid: 41f97064db863fb4d9de56897bda381a, type: 3}
     explanation: 
@@ -158,6 +194,15 @@ MonoBehaviour:
     devilWatch:
       MaxPower: 0
       MaxTime: 0
+    toolBoxParc:
+      ParcNum: 0
+    angelWatchParc:
+      MaxPower: 0
+      MaxTime: 0
+    metronomeParc:
+      MaxTime: 0
+      MaxPowerParsent: 0
+      ParcentUp: 0
   - name: "\u81C6\u75C5\u306A\u5996\u7CBE"
     image: {fileID: 21300000, guid: 5650037e5c7ed9c4082b543b983ed44d, type: 3}
     explanation: 
@@ -187,6 +232,15 @@ MonoBehaviour:
     devilWatch:
       MaxPower: 0
       MaxTime: 0
+    toolBoxParc:
+      ParcNum: 0
+    angelWatchParc:
+      MaxPower: 0
+      MaxTime: 0
+    metronomeParc:
+      MaxTime: 0
+      MaxPowerParsent: 0
+      ParcentUp: 0
   - name: "\u5E78\u305B\u306A\u5996\u7CBE"
     image: {fileID: 21300000, guid: 31c76ec94693e6c459e6787d005c2738, type: 3}
     explanation: 
@@ -216,6 +270,15 @@ MonoBehaviour:
     devilWatch:
       MaxPower: 0
       MaxTime: 0
+    toolBoxParc:
+      ParcNum: 0
+    angelWatchParc:
+      MaxPower: 0
+      MaxTime: 0
+    metronomeParc:
+      MaxTime: 0
+      MaxPowerParsent: 0
+      ParcentUp: 0
   - name: "\u51B7\u3081\u305F\u624B\u9320"
     image: {fileID: 21300000, guid: 31c76ec94693e6c459e6787d005c2738, type: 3}
     explanation: 
@@ -245,3 +308,12 @@ MonoBehaviour:
     devilWatch:
       MaxPower: 0
       MaxTime: 0
+    toolBoxParc:
+      ParcNum: 0
+    angelWatchParc:
+      MaxPower: 0
+      MaxTime: 0
+    metronomeParc:
+      MaxTime: 0
+      MaxPowerParsent: 0
+      ParcentUp: 0

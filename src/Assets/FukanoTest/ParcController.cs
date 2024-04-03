@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 using UnityEngine.Playables;
+using UnityEngine.Rendering;
 
+[System.Serializable]
 public class mParc 
 {
     public int Power;
@@ -19,6 +22,10 @@ public class mParc
     public FairyParc mFairyParc = new FairyParc();
     public BloodWetParc mBloodWetParc = new BloodWetParc();
     public DevilWatchParc mDevilWatchParc = new DevilWatchParc();
+    public ToolBoxParc mToolBoxParc = new ToolBoxParc();
+    public AngelWatchParc mAngelWatchParc = new AngelWatchParc();
+    public MetronomeParc mMetronomeParc = new MetronomeParc();
+    public BloodsheadParc mBloodsheadParc = new BloodsheadParc();
     public int ContactDamage;
     public int Recovery;
    
@@ -37,6 +44,8 @@ public class ParcController:MonoBehaviour
     [SerializeField] private GameObject ParcWindow;
     [SerializeField] private GameObject Player;
     private PlayerHPController HPcontroller;
+
+    private ItemManager itemManager => ItemManager.instance;
 
     private void Awake()
     {
@@ -75,14 +84,13 @@ public class ParcController:MonoBehaviour
 
     private void FixedUpdate()
     {
-        FailyParc();
-        BloodWetParc();
-        DevilWatchParc();
-        mParc.LTotalPower = (int)(mParc.Power + mParc.mFairyParc.Power + mParc.mBloodWetParc.Power+mParc.mDevilWatchParc.LPower);
-        mParc.RTotalPower = (int)(mParc.Power + mParc.mFairyParc.Power + mParc.mBloodWetParc.Power + mParc.mDevilWatchParc.RPower);
-        mParc.TotalCoolTime = mParc.CoolTime + mParc.mFairyParc.coolTime + mParc.mBloodWetParc.coolTime;
+        TimeParc();
+        mParc.LTotalPower = (int)((mParc.Power*mParc.mMetronomeParc.PowerParsent) + mParc.mFairyParc.Power + mParc.mBloodWetParc.Power+mParc.mDevilWatchParc.LPower);
+        mParc.RTotalPower = (int)((mParc.Power * mParc.mMetronomeParc.PowerParsent) + mParc.mFairyParc.Power + mParc.mBloodWetParc.Power + mParc.mDevilWatchParc.RPower);
+        mParc.TotalCoolTime = mParc.CoolTime + mParc.mFairyParc.coolTime + mParc.mBloodWetParc.coolTime+mParc.mToolBoxParc.GetcoolTime;
         mParc.TotalAvoiddance = mParc.AvoidanceProbability + mParc.mFairyParc.Avoidance;
         mParc.TotalSpeed = mParc.Speed + mParc.mBloodWetParc.speed;
+      
     }
     public void SetParc(int ID)
     {
@@ -101,6 +109,12 @@ public class ParcController:MonoBehaviour
         mParc.mFairyParc.SetFailyParc(parcDatas.ParcData[ID].GetFairyParc);
         mParc.mBloodWetParc.SetBloodWetParc(parcDatas.ParcData[ID].GetBloodWetParc);
         mParc.mDevilWatchParc.SetDevilWatchParc(parcDatas.ParcData[ID].GetDevilWatchParc);
+        mParc.mToolBoxParc.SetToolBoxParc(parcDatas.ParcData[ID].GetToolBoxParc);
+        mParc.mAngelWatchParc.SetAngelWatchParc(parcDatas.ParcData[ID].GetAngelWatchParc);
+        mParc.mMetronomeParc.SetMetronomeParc(parcDatas.ParcData[ID].GetMetronomeParc);
+        mParc.mBloodsheadParc.SetBloodsheadParc(parcDatas.ParcData[ID].GetBloodsheadParc);
+
+        itemManager.GetItem(parcDatas.ParcData[ID].GetBloodWetParc.GetPart);
     }
 
     public void RemoveParc(int ID)
@@ -119,6 +133,10 @@ public class ParcController:MonoBehaviour
         mParc.mFairyParc.RemoveFailyParc(parcDatas.ParcData[ID].GetFairyParc);
         mParc.mBloodWetParc.RemoveBloodWetParc(parcDatas.ParcData[ID].GetBloodWetParc);
         mParc.mDevilWatchParc.RemoveDevilWatchParc(parcDatas.ParcData[ID].GetDevilWatchParc);
+        mParc.mToolBoxParc.RemoveToolBoxParc(parcDatas.ParcData[ID].GetToolBoxParc);
+        mParc.mAngelWatchParc.RemoveAngelWatchParc(parcDatas.ParcData[ID].GetAngelWatchParc);
+        mParc.mMetronomeParc.RemoveMetronomeParc(parcDatas.ParcData[ID].GetMetronomeParc);
+        mParc.mBloodsheadParc.RemoveBloodsheadParc(parcDatas.ParcData[ID].GetBloodsheadParc);
     }
 
     private void FailyParc()
@@ -157,7 +175,7 @@ public class ParcController:MonoBehaviour
         else
             mParc.mDevilWatchParc.RPower += (mParc.mDevilWatchParc.MaxPower / mParc.mDevilWatchParc.MaxTime) * 0.02f;
     }
-    private void BloodWetParc()
+    private void BloodWetParcBuff()
     {
         if(HPcontroller.HP <= HPcontroller.MaxHP* (mParc.mBloodWetParc.RestHPPercent/100))
         {
@@ -173,6 +191,54 @@ public class ParcController:MonoBehaviour
         }
     }
 
+    private void BloodWetParcDamage()
+    {
+        if (HPcontroller.HP >= HPcontroller.MaxHP * (mParc.mBloodWetParc.MaxHPPercent / 100))
+        {
+            HPcontroller.Damage(mParc.mBloodWetParc.Damage);
+        }
+       
+    }
+
+    private void AngelWatchParc()
+    {
+        if (mParc.mAngelWatchParc.Power >= mParc.mAngelWatchParc.MaxPower)
+            mParc.mAngelWatchParc.Power = mParc.mAngelWatchParc.MaxPower;
+        else
+            mParc.mAngelWatchParc.Power += (mParc.mAngelWatchParc.MaxPower / mParc.mAngelWatchParc.MaxTime) * 0.02f;
+    }
+
+    private void MetronomeParcTime()
+    {
+        mParc.mMetronomeParc.Time += 0.02f;
+        if (mParc.mMetronomeParc.Time >= mParc.mMetronomeParc.MaxTime)
+        {
+            mParc.mMetronomeParc.Time = 0;
+            mParc.mMetronomeParc.PowerParsent = 0;
+        }
+    }
+    private void MetronomeParcAttack()
+    {
+        mParc.mMetronomeParc.Time = 0;
+        if (mParc.mMetronomeParc.PowerParsent >= mParc.mMetronomeParc.MaxPowerParsent)
+            mParc.mMetronomeParc.PowerParsent = mParc.mMetronomeParc.MaxPowerParsent;
+        else
+            mParc.mMetronomeParc.PowerParsent += mParc.mMetronomeParc.ParcentUp;
+
+
+
+    }
+    private void BloodshedParcAttack()
+    {
+        float random = Random.Range(0,101);
+        if(random <= mParc.mBloodsheadParc.HealParsent)
+            HPcontroller.Heal( mParc.mBloodsheadParc.AttackHeal+mParc.Recovery);
+        
+    }
+    private void BloodsheadParcCritical()
+    {
+        HPcontroller.Heal(mParc.mBloodsheadParc.CriticalHeal + mParc.Recovery);
+    }
     public void ShotParc()
     {
         mParc.mFairyParc.Power = 0;
@@ -181,5 +247,30 @@ public class ParcController:MonoBehaviour
 
         mParc.mDevilWatchParc.LPower = 0;
         mParc.mDevilWatchParc.RPower = 0;
+    }
+
+    public void DamageParc()
+    {
+        mParc.mAngelWatchParc.Power = 0;
+    }
+
+    public void AttackParc()
+    {
+        MetronomeParcAttack();
+        BloodshedParcAttack();
+
+        BloodWetParcDamage();
+    }
+    public void CriticalParc()
+    {
+        BloodsheadParcCritical();
+    }
+    public void TimeParc()
+    {
+        FailyParc();
+        BloodWetParcBuff();
+        DevilWatchParc();
+        AngelWatchParc();
+        MetronomeParcTime();
     }
 }
