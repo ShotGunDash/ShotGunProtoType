@@ -14,7 +14,7 @@ public class EnemyMediumMissile : MonoBehaviour
     [SerializeField] private float lockOnIntarval = 5f;
     [SerializeField] private float LockOnMissilePower = 25f;
     [SerializeField] private float HomingMissilePower = 40f;
-    [SerializeField] private float MissileSpeed = 3f;
+    //[SerializeField] private float MissileSpeed = 3f;
     [SerializeField] private float RotateSpeed = 0.001f;
     [SerializeField] private float LimitSpeed = 10.0f;
     private Rigidbody rb;
