@@ -4906,6 +4906,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6146537273408063141, guid: af12330e95d5dae4fb2f9adc46e5788c,
+        type: 3}
+      propertyPath: RapidMissileIntarval
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146537273408063141, guid: af12330e95d5dae4fb2f9adc46e5788c,
+        type: 3}
+      propertyPath: MediumMissileIntarval
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146537273408063141, guid: af12330e95d5dae4fb2f9adc46e5788c,
+        type: 3}
+      propertyPath: MisfireMissileIntarval
+      value: 1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6544490745722915207, guid: af12330e95d5dae4fb2f9adc46e5788c,
         type: 3}
       propertyPath: m_LocalPosition.x

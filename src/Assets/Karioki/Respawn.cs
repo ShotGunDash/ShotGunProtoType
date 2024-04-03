@@ -87,8 +87,8 @@ public class Respawn : MonoBehaviour
         {
             RespawnTime = 0;
 
-            
-            GameObject.Instantiate(SpawnEnemy(), SpawnPoint(), Quaternion.Euler(0f, 0f, 0f));
+            if(LateSum != 0)
+                GameObject.Instantiate(SpawnEnemy(), SpawnPoint(), Quaternion.Euler(0f, 0f, 0f));
         }
     }
 }

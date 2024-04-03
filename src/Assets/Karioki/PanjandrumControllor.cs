@@ -39,7 +39,6 @@ public class PanjandrumControllor : MonoBehaviour
     [SerializeField]
     private float MediumMissileIntarval = 5.0f, MediumMissileDistance = 13f, MediumMissilePower = 20f;
 
-    [Header("a")]
     [Space]
     [SerializeField]
     private float MisfireMissileIntarval = 4.0f, MisfireMissileDistance = 13f, MisfireMissilePower = 20f;
@@ -96,7 +95,17 @@ public class PanjandrumControllor : MonoBehaviour
     private void ActionChange()
     {
         int random = UnityEngine.Random.Range(0, Enum.GetValues(typeof(Action)).Length);
-        if (random == (int)Enemyaction)
+        if(Enemyaction == Action.Rapid_missile || Enemyaction == Action.Medium_missile || Enemyaction == Action.Misfire_missile)
+        {
+            if(random == 2 || random == 3 || random == 5)
+                ActionChange();
+            else
+            {
+                MoveChangeCount = 0f;
+                Enemyaction = (Action)random;
+            }
+        }
+        else if (random == (int)Enemyaction)
             ActionChange();
 
         else
@@ -171,7 +180,7 @@ public class PanjandrumControllor : MonoBehaviour
             //transform.rotation = Quaternion.Euler(0, 90, 0) * lookRotation;
             ActionSet = false;
         }
-        MoveChangeCount += Time.deltaTime * 2f;
+        MoveChangeCount += Time.deltaTime * 3f;
         float RotateDistance = Vector3.Distance(new Vector3(Player.transform.position.x,0,Player.transform.position.z), StartPos);
         float EnemyDistance = Vector3.Distance(new Vector3(this.transform.position.x, 0, this.transform.position.z), StartPos);
         if (RotateDistance < 15f && EnemyDistance < 18f)
@@ -236,7 +245,7 @@ public class PanjandrumControllor : MonoBehaviour
             {
                 NavChanged(true);
             }
-            transform.position = StartPos;
+            //transform.position = StartPos;
         }
         
         float PlaneDistance = GetDistance();
@@ -276,7 +285,7 @@ public class PanjandrumControllor : MonoBehaviour
             {
                 NavChanged(true);
             }
-            transform.position = StartPos;
+            //transform.position = StartPos;
         }
         float PlaneDistance = GetDistance();
 
@@ -303,7 +312,7 @@ public class PanjandrumControllor : MonoBehaviour
                 Rigidbody rigidbody_right = Missile_right.GetComponent<Rigidbody>();
                 rigidbody_right.AddForce((transform.position - RightLauncher.transform.position).normalized * MediumMissilePower, ForceMode.Impulse);
 
-                MoveChangeCount += 2f;
+                MoveChangeCount += 3f;
             }
         }
         else
@@ -360,7 +369,7 @@ public class PanjandrumControllor : MonoBehaviour
             {
                 NavChanged(true);
             }
-            transform.position = StartPos;
+            //transform.position = StartPos;
         }
         float PlaneDistance = GetDistance();
 
@@ -384,7 +393,7 @@ public class PanjandrumControllor : MonoBehaviour
                 Rigidbody rigidbody_right = Missile_right.GetComponent<Rigidbody>();
                 rigidbody_right.AddForce((transform.position - RightLauncher.transform.position).normalized * MisfireMissilePower, ForceMode.Impulse);
 
-                MoveChangeCount += 2f;
+                MoveChangeCount += 2.5f;
             }
         }
         else
