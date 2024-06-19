@@ -1929,7 +1929,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614611}
   m_ExposedName: Size
   m_Exposed: 1
-  m_Order: 9
+  m_Order: 17
   m_Category: Setting
   m_Min:
     m_Type:
@@ -2033,7 +2033,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614613}
   m_ExposedName: AlphaGradient
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 4
   m_Category: Graphic
   m_Min:
     m_Type:
@@ -2145,7 +2145,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614615}
   m_ExposedName: MainLightColor
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 8
   m_Category: Graphic
   m_Min:
     m_Type:
@@ -3336,7 +3336,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614686}
   m_ExposedName: Height
   m_Exposed: 1
-  m_Order: 8
+  m_Order: 16
   m_Category: Setting
   m_Min:
     m_Type:
@@ -5943,7 +5943,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614889}
   m_ExposedName: ParticleSpawnRate
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 1
   m_Category: ParticleSetting
   m_Min:
     m_Type:
@@ -6093,7 +6093,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614893}
   m_ExposedName: ParticleSize
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 9
   m_Category: ParticleSetting
   m_Min:
     m_Type:
@@ -10313,7 +10313,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615057}
   m_ExposedName: FlareRate
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 5
   m_Category: FlareSetting
   m_Min:
     m_Type:
@@ -10393,7 +10393,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615059}
   m_ExposedName: FlareSize
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 10
   m_Category: FlareSetting
   m_Min:
     m_Type:
@@ -10575,7 +10575,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615064}
   m_ExposedName: ParticleUpSpeed
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 14
   m_Category: ParticleSetting
   m_Min:
     m_Type:
@@ -11447,7 +11447,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615122}
   m_ExposedName: CircleMeshTexture
   m_Exposed: 1
-  m_Order: 4
+  m_Order: 13
   m_Category: Graphic
   m_Min:
     m_Type:
@@ -11791,7 +11791,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615131}
   m_ExposedName: CircleMeshSize
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 6
   m_Category: CircleSetting
   m_Min:
     m_Type:
@@ -12069,7 +12069,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615153}
   m_ExposedName: CircleMeshRate
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 2
   m_Category: CircleSetting
   m_Min:
     m_Type:
@@ -12347,7 +12347,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615161}
   m_ExposedName: CircleMeshColor
   m_Exposed: 1
-  m_Order: 3
+  m_Order: 12
   m_Category: Graphic
   m_Min:
     m_Type:
@@ -13192,7 +13192,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615194}
   m_ExposedName: CircleMeshUpSpeed
   m_Exposed: 1
-  m_Order: 2
+  m_Order: 11
   m_Category: CircleSetting
   m_Min:
     m_Type:
@@ -13272,7 +13272,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615196}
   m_ExposedName: CircleMeshSizeCurve
   m_Exposed: 1
-  m_Order: 10
+  m_Order: 18
   m_Category: CircleSetting
   m_Min:
     m_Type:
@@ -13585,7 +13585,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615267}
   m_ExposedName: CircleRotateVector
   m_Exposed: 1
-  m_Order: 11
+  m_Order: 19
   m_Category: CircleSetting
   m_Min:
     m_Type:
@@ -16077,7 +16077,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615363}
   m_ExposedName: UpBannertexture
   m_Exposed: 1
-  m_Order: 5
+  m_Order: 15
   m_Category: Graphic
   m_Min:
     m_Type:
@@ -16763,7 +16763,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615391}
   m_ExposedName: UpBannerHeight
   m_Exposed: 1
-  m_Order: 0
+  m_Order: 3
   m_Category: UpBannerSetting
   m_Min:
     m_Type:
@@ -16843,7 +16843,7 @@ MonoBehaviour:
   - {fileID: 8926484042661615401}
   m_ExposedName: UpBannerPositionY
   m_Exposed: 1
-  m_Order: 1
+  m_Order: 7
   m_Category: UpBannerSetting
   m_Min:
     m_Type:
