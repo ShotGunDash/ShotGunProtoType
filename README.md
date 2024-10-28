@@ -3,3 +3,5 @@
 NANACHI
 
 Fukano　Pushできるかのテスト
+
+Nortification test
